@@ -1,10 +1,11 @@
 import { Link } from "react-router-dom";
 import { useRef, useState, useCallback } from "react";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import OptimizedImage from "@/components/shared/OptimizedImage";
 import InteractiveCursor from "@/features/home/components/InteractiveCursor";
 import FloatingParticles from "@/features/home/components/FloatingParticles";
 import TypewriterText from "@/features/home/components/TypewriterText";
-import astronautImg from "@/assets/astronaut-hero.png";
+import { heroImages } from "@/lib/images";
 
 const HeroSection = () => {
   const heroRef = useRef<HTMLElement>(null);
@@ -138,12 +139,16 @@ const HeroSection = () => {
                 }}
               />
               {/* Astronaut moves with mouse for depth */}
-              <img
-                src={astronautImg}
-                alt="Devorica digital agency astronaut illustration representing innovative web development and software engineering"
-                className="relative z-10 w-full max-w-[400px] md:max-w-[500px] lg:max-w-[700px] animate-float opacity-80 lg:opacity-100"
+              <OptimizedImage
+                src={heroImages.main.src}
+                alt={heroImages.main.alt}
+                width={heroImages.main.width}
+                height={heroImages.main.height}
+                priority
+                sizes="(max-width: 768px) 100vw, 50vw"
+                className="relative z-10 w-full max-w-[400px] md:max-w-[500px] lg:max-w-[700px] rounded-2xl opacity-80 lg:opacity-100"
                 style={{
-                  transform: `scale(1.2) translate(${mousePos.x * 20}px, ${mousePos.y * 15}px) rotateY(${mousePos.x * 5}deg) rotateX(${mousePos.y * -5}deg)`,
+                  transform: `scale(1.05) translate(${mousePos.x * 20}px, ${mousePos.y * 15}px) rotateY(${mousePos.x * 5}deg) rotateX(${mousePos.y * -5}deg)`,
                   transition: "transform 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94)",
                 }}
               />

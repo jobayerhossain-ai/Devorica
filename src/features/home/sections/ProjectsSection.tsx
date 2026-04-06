@@ -40,6 +40,7 @@ const ProjectsSection = () => {
                         alt={`${project.title} — Devorica portfolio project showcasing digital design and development`}
                         className="premium-media block h-full w-full object-cover"
                         loading="lazy"
+                        decoding="async"
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/85 via-black/18 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-end p-4">
                         <p className="text-white font-[700] text-sm sm:text-base tracking-tight">{project.title}</p>

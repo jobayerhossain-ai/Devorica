@@ -4,9 +4,11 @@ import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/shared/FAQSection";
 import ContactForm from "@/components/shared/ContactForm";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import OptimizedImage from "@/components/shared/OptimizedImage";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
 import { SEO, organizationSchema, buildBreadcrumbSchema } from "@/lib/seo";
+import { aboutImages, teamHeadshots, momentImages } from "@/lib/images";
 
 const teamMembers = [
   { name: "Azmain Hossain", role: "CEO & Founder" },
@@ -74,11 +76,13 @@ const About = () => {
 
           <AnimatedSection delay={0.4} className="mt-16 max-w-5xl mx-auto">
              <div className="premium-media-frame rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
-                 <img 
-                  src="/assets/team/team_hero.png" 
-                  alt="Devorica team of 20+ engineers, designers and digital strategists" 
+                 <OptimizedImage 
+                  src={aboutImages.teamHero.src} 
+                  alt={aboutImages.teamHero.alt}
+                  width={aboutImages.teamHero.width}
+                  height={aboutImages.teamHero.height}
+                  sizes="(max-width: 1024px) 100vw, 80vw"
                   className="premium-media w-full h-auto"
-                  loading="lazy"
                 />
              </div>
           </AnimatedSection>
@@ -125,11 +129,11 @@ const About = () => {
                     <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-4/5 h-4/5 bg-gradient-to-t from-blue-500/10 to-transparent blur-2xl opacity-50" />
                     
                     <div className="absolute inset-0 flex items-center justify-center">
-                      <img 
-                        src={`/assets/team/headshot${(i % 8) + 1}.png`} 
+                      <OptimizedImage 
+                        src={teamHeadshots[(i % 8)].src} 
                         alt={`${member.name} — ${member.role} at Devorica digital agency`}
                         className="premium-media w-full h-full object-cover"
-                        loading="lazy"
+                        sizes="(max-width: 768px) 50vw, 25vw"
                       />
                     </div>
                   </div>
@@ -181,8 +185,8 @@ const About = () => {
                  {/* Glowing circle behind astronaut */}
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full" />
                   <motion.img 
-                    src="/assets/astronaut.png" 
-                    alt="Devorica innovation astronaut representing frontier digital engineering"
+                    src={aboutImages.astronaut.src} 
+                    alt={aboutImages.astronaut.alt}
                     className="relative w-full h-auto"
                     animate={{ 
                        y: [0, -20, 0],
@@ -194,6 +198,7 @@ const About = () => {
                        ease: "easeInOut"
                     }}
                     loading="lazy"
+                    decoding="async"
                  />
               </AnimatedSection>
 
@@ -238,19 +243,22 @@ const About = () => {
            </AnimatedSection>
 
             <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
-              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => (
+              {[1, 2, 3, 4, 5, 6, 7, 8].map((i) => {
+              const moment = momentImages[`moment${i}` as keyof typeof momentImages];
+              return (
                 <AnimatedSection key={i} delay={i * 0.05}>
                   <div className="premium-media-frame relative aspect-video lg:aspect-square rounded-2xl overflow-hidden group">
                      <div className="absolute inset-0 bg-blue-500/10 mix-blend-overlay group-hover:opacity-0 transition-opacity duration-500" />
-                     <img 
-                      src={`/assets/moments/moment${i}.png`} 
-                      alt={`Moments ${i}`} 
+                     <OptimizedImage 
+                      src={moment.src} 
+                      alt={moment.alt}
                       className="premium-media w-full h-full object-cover"
-                      loading="lazy"
+                      sizes="(max-width: 768px) 50vw, 25vw"
                      />
                   </div>
                 </AnimatedSection>
-              ))}
+              );
+            })}
             </div>
         </div>
       </section>

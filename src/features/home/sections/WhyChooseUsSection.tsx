@@ -1,4 +1,6 @@
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import OptimizedImage from "@/components/shared/OptimizedImage";
+import { momentImages } from "@/lib/images";
 
 const WhyChooseUsSection = () => {
   return (
@@ -10,19 +12,19 @@ const WhyChooseUsSection = () => {
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-4 mt-6 md:mt-8">
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[55%]">
-                  <img 
-                    src="/assets/moments/moment1.png" 
-                    alt="Team collaboration" 
+                  <OptimizedImage 
+                    src={momentImages.moment1.src} 
+                    alt={momentImages.moment1.alt} 
                     className="premium-media w-full h-full object-cover"
-                    loading="lazy"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[45%]">
-                  <img 
-                    src="/assets/moments/moment2.png" 
-                    alt="Modern office" 
+                  <OptimizedImage 
+                    src={momentImages.moment2.src} 
+                    alt={momentImages.moment2.alt} 
                     className="premium-media w-full h-full object-cover"
-                    loading="lazy"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
               </div>
@@ -34,11 +36,11 @@ const WhyChooseUsSection = () => {
                   <p className="text-[15px] font-[500] text-white/90">Countries Served</p>
                 </div>
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[65%]">
-                  <img 
-                    src="/assets/moments/moment3.png" 
-                    alt="Working professional" 
+                  <OptimizedImage 
+                    src={momentImages.moment3.src} 
+                    alt={momentImages.moment3.alt} 
                     className="premium-media w-full h-full object-cover"
-                    loading="lazy"
+                    sizes="(max-width: 1024px) 50vw, 25vw"
                   />
                 </div>
               </div>
