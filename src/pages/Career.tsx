@@ -4,6 +4,7 @@ import FAQSection from "@/components/shared/FAQSection";
 import ContactForm from "@/components/shared/ContactForm";
 import GlobalSupport from "@/components/shared/GlobalSupport";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { SEO, buildBreadcrumbSchema } from "@/lib/seo";
 
 const stats = [
   { value: "30+", label: "Countries Served" },
@@ -24,6 +25,15 @@ const perks = [
 const Career = () => {
   return (
     <div className="min-h-screen bg-[#050505]">
+      <SEO
+        title="Careers at Devorica — Join Our Elite Engineering Team"
+        description="Build your career at Devorica. We're hiring web developers, mobile engineers, UI/UX designers, and digital marketers. Remote-first, competitive pay, enterprise-scale projects. Apply now."
+        canonical="https://devorica.com/career"
+        jsonLd={buildBreadcrumbSchema([
+          { name: "Home", url: "https://devorica.com" },
+          { name: "Careers", url: "https://devorica.com/career" },
+        ])}
+      />
       <Navbar />
 
       {/* Hero */}

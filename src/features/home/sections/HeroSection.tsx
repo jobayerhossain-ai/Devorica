@@ -131,7 +131,7 @@ const HeroSection = () => {
               {/* Astronaut moves with mouse for depth */}
               <img
                 src={astronautImg}
-                alt="Astronaut"
+                alt="Devorica digital agency astronaut illustration representing innovative web development and software engineering"
                 className="relative z-10 w-full max-w-[400px] md:max-w-[500px] lg:max-w-[700px] animate-float opacity-80 lg:opacity-100"
                 style={{
                   transform: `scale(1.2) translate(${mousePos.x * 20}px, ${mousePos.y * 15}px) rotateY(${mousePos.x * 5}deg) rotateX(${mousePos.y * -5}deg)`,

@@ -6,6 +6,7 @@ import ContactForm from "@/components/shared/ContactForm";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import { motion } from "framer-motion";
 import { ArrowRight } from "lucide-react";
+import { SEO, organizationSchema, buildBreadcrumbSchema } from "@/lib/seo";
 
 const teamMembers = [
   { name: "Azmain Hossain", role: "CEO & Founder" },
@@ -40,6 +41,18 @@ const stats = [
 const About = () => {
   return (
     <div className="min-h-screen bg-[#000000] text-white selection:bg-blue-500/30">
+      <SEO
+        title="About Devorica — Our Team, Mission & Engineering Excellence"
+        description="Meet the elite engineering team behind Devorica. 20+ specialists across web development, mobile apps, UI/UX design, and digital marketing. Serving 30+ countries with 250+ successful projects."
+        canonical="https://devorica.com/about"
+        jsonLd={[
+          organizationSchema,
+          buildBreadcrumbSchema([
+            { name: "Home", url: "https://devorica.com" },
+            { name: "About", url: "https://devorica.com/about" },
+          ]),
+        ]}
+      />
       <Navbar />
 
       {/* Hero Section */}
@@ -63,7 +76,7 @@ const About = () => {
              <div className="premium-media-frame rounded-3xl overflow-hidden border border-white/5 bg-[#0a0a0a]">
                  <img 
                   src="/assets/team/team_hero.png" 
-                  alt="Devorica Team" 
+                  alt="Devorica team of 20+ engineers, designers and digital strategists" 
                   className="premium-media w-full h-auto"
                   loading="lazy"
                 />
@@ -114,7 +127,7 @@ const About = () => {
                     <div className="absolute inset-0 flex items-center justify-center">
                       <img 
                         src={`/assets/team/headshot${(i % 8) + 1}.png`} 
-                        alt={member.name}
+                        alt={`${member.name} — ${member.role} at Devorica digital agency`}
                         className="premium-media w-full h-full object-cover"
                         loading="lazy"
                       />
@@ -169,7 +182,7 @@ const About = () => {
                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-80 h-80 bg-blue-600/10 blur-[100px] rounded-full" />
                   <motion.img 
                     src="/assets/astronaut.png" 
-                    alt="Astronaut"
+                    alt="Devorica innovation astronaut representing frontier digital engineering"
                     className="relative w-full h-auto"
                     animate={{ 
                        y: [0, -20, 0],

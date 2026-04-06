@@ -2,6 +2,7 @@ import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/shared/FAQSection";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { SEO, buildBreadcrumbSchema } from "@/lib/seo";
 
 const blogPosts = [
   {
@@ -36,6 +37,15 @@ const categories = ["All", "Scalable Engineering", "Mobile App Development", "We
 const Blogs = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Blog — Digital Engineering Insights & Growth Strategies | Devorica"
+        description="Explore Devorica's blog for expert insights on web development, mobile app engineering, UI/UX design trends, SaaS product strategy, and digital marketing. Stay ahead with actionable tech intelligence."
+        canonical="https://devorica.com/blogs"
+        jsonLd={buildBreadcrumbSchema([
+          { name: "Home", url: "https://devorica.com" },
+          { name: "Blog", url: "https://devorica.com/blogs" },
+        ])}
+      />
       <Navbar />
 
       {/* Hero */}

@@ -6,12 +6,14 @@ import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/shared/FAQSection";
 import ContactForm from "@/components/shared/ContactForm";
 import AnimatedSection from "@/components/shared/AnimatedSection";
+import { SEO, buildServiceSchema, buildBreadcrumbSchema } from "@/lib/seo";
 
-const serviceData: Record<string, { title: string; subtitle: string; description: string; features: string[]; works: { title: string; tag: string; img?: string }[] }> = {
+const serviceData: Record<string, { title: string; subtitle: string; description: string; seoDescription: string; features: string[]; works: { title: string; tag: string; img?: string }[] }> = {
   "web-development": {
     title: "Scalable Web & Software Engineering",
     subtitle: "Architecting high-performance digital platforms for global scale",
     description: "Devorica specializes in engineering resilient, high-availability web architectures and complex software ecosystems. We leverage cutting-edge technology stacks to ensure your digital infrastructure is secure, scalable, and optimized for enterprise-level user engagement.",
+    seoDescription: "Custom web development and enterprise software engineering by Devorica. We build scalable, high-performance web applications using React, Node.js, and cloud architecture. Get a free consultation.",
     features: ["Enterprise Cloud Architecture", "Custom Software Engineering", "High-Availability Systems", "API Ecosystem Design"],
     works: [
       { title: "Enterprise FinTech Platform", tag: "Engineering", img: "https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&q=80&w=800" },
@@ -26,6 +28,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
     title: "Mobile App Development",
     subtitle: "Engineering mission-critical mobile experiences",
     description: "Our mobile engineering team develops high-performance native and cross-platform applications that deliver seamless user journeys. We focus on technical efficiency, security, and superior interface design to drive user retention and mobile business growth.",
+    seoDescription: "Professional mobile app development for iOS and Android by Devorica. We build native and cross-platform apps with React Native and Flutter for startups and enterprises worldwide.",
     features: ["iOS & Android Engineering", "Cross-Platform Optimization", "Mobile Security Protocols", "Strategic UI Flow"],
     works: [
       { title: "Enterprise Mobile Portal", tag: "Mobile Engineering", img: "https://images.unsplash.com/photo-1551650975-87deedd944c3?auto=format&fit=crop&q=80&w=800" },
@@ -38,6 +41,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
     title: "Website Redesign & Optimization",
     subtitle: "Transforming digital assets into high-performance revenue engines",
     description: "Devorica revitalizes legacy digital systems through strategic redesign and data-driven performance optimization. We focus on enhancing technical metrics, user accessibility, and conversion architecture to ensure your web presence drives measurable business results.",
+    seoDescription: "Website redesign and performance optimization services by Devorica. We transform slow, outdated websites into fast, high-converting digital platforms with modern UI/UX and CRO.",
     features: ["Performance Refactoring", "Conversion Rate Optimization", "Institutional Branding", "Legacy System Migration"],
     works: [
       { title: "SaaS Platform Re-engineering", tag: "Transformation", img: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=800" },
@@ -50,6 +54,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
     title: "SEO & Growth Optimization",
     subtitle: "Data-driven strategies for global market leadership",
     description: "We implement technical SEO and outcome-focused growth methodologies to maximize your organic reach and search authority. Our growth team leverages data analytics and performance marketing to optimize acquisition costs and drive sustainable business expansion.",
+    seoDescription: "Expert SEO and digital growth services by Devorica. We deliver technical SEO, performance marketing, and data-driven strategies to increase organic traffic, rankings, and conversions.",
     features: ["Technical SEO Infrastructure", "Growth Engineering", "Performance Analytics", "Market Dominance Strategy"],
     works: [
       { title: "Organic Growth Initiative", tag: "Optimization", img: "https://images.unsplash.com/photo-1432888622747-4eb9a8f2c205?auto=format&fit=crop&q=80&w=800" },
@@ -62,6 +67,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
     title: "Maintenance & Support",
     subtitle: "24/7 reliability for mission-critical infrastructure",
     description: "Devorica provides comprehensive technical oversight and proactive system maintenance to ensure 100% operational uptime. Our engineering support team manages security infrastructure, performance tuning, and continuous technical evolution to protect your digital assets.",
+    seoDescription: "24/7 website maintenance and technical support from Devorica. We handle security patches, performance monitoring, uptime management, and continuous optimization for your digital infrastructure.",
     features: ["Institutional Support", "Systemic Stability", "Security Infrastructure", "Performance Tuning"],
     works: [
       { title: "Enterprise Support Hub", tag: "Sustaining", img: "https://images.unsplash.com/photo-1561070791-200115364ee2?auto=format&fit=crop&q=80&w=800" },
@@ -260,9 +266,27 @@ const ServiceHeroShapes = ({ slug }: { slug: string }) => {
 const ServicePage = () => {
   const { slug } = useParams<{ slug: string }>();
   const service = serviceData[slug || ""] || serviceData["web-development"];
+  const currentSlug = slug || "web-development";
 
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title={`${service.title} — Devorica`}
+        description={service.seoDescription}
+        canonical={`https://devorica.com/services/${currentSlug}`}
+        jsonLd={[
+          buildServiceSchema({
+            name: service.title,
+            description: service.seoDescription,
+            url: `https://devorica.com/services/${currentSlug}`,
+          }),
+          buildBreadcrumbSchema([
+            { name: "Home", url: "https://devorica.com" },
+            { name: "Services", url: "https://devorica.com/services" },
+            { name: service.title, url: `https://devorica.com/services/${currentSlug}` },
+          ]),
+        ]}
+      />
       <Navbar />
       {/* Hero */}
       <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#050505] min-h-[70vh] flex items-center">

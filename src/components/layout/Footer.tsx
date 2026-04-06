@@ -19,7 +19,7 @@ const Footer = () => {
           <div className="lg:col-span-2 flex flex-col items-center md:items-start text-center md:text-left lg:-mt-4">
             <div className="flex flex-col gap-1 items-center md:items-start">
               <Link to="/" className="block">
-                <img src={logo} alt="Devorica Logo" className="h-16 md:h-24 w-auto object-contain" />
+                <img src={logo} alt="Devorica — Full-Service Digital Agency Logo" className="h-16 md:h-24 w-auto object-contain" />
               </Link>
               <p className="text-[10px] text-white/40 uppercase tracking-[3px] font-medium">Architecting Digital Excellence</p>
             </div>
@@ -49,15 +49,16 @@ const Footer = () => {
              <h4 className="text-xs font-[700] text-white/40 tracking-widest">Social Infrastructure</h4>
              <div className="flex flex-wrap gap-2">
                {[
-                 { icon: Instagram, href: "https://www.instagram.com/devoricaweb/", hoverColor: "#E4405F" },
-                 { icon: Facebook, href: "https://www.facebook.com/devoricaweb/", hoverColor: "#1877F2" },
-                 { icon: ThreadsIcon, href: "https://www.threads.com/@devorica9", hoverColor: "#FFFFFF" },
-                 //{ icon: Twitter, href: "#", hoverColor: "#1DA1F2" },
-                 //{ icon: Linkedin, href: "#", hoverColor: "#0A66C2" },
+                 { icon: Instagram, href: "https://www.instagram.com/devoricaweb/", hoverColor: "#E4405F", label: "Follow Devorica on Instagram" },
+                 { icon: Facebook, href: "https://www.facebook.com/devoricaweb/", hoverColor: "#1877F2", label: "Follow Devorica on Facebook" },
+                 { icon: ThreadsIcon, href: "https://www.threads.com/@devorica9", hoverColor: "#FFFFFF", label: "Follow Devorica on Threads" },
                ].map((social, i) => (
                  <a 
                    key={i} 
-                   href={social.href} 
+                   href={social.href}
+                   target="_blank"
+                   rel="noopener noreferrer"
+                   aria-label={social.label}
                    className="group w-10 h-10 bg-[#0d0d0d] border border-white/5 rounded-lg flex items-center justify-center text-white/40 hover:border-white/20 hover:bg-[#1a1a1a] transition-all duration-300"
                    style={{ ["--icon-hover" as string]: social.hoverColor }}
                  >

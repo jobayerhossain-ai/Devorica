@@ -4,10 +4,20 @@ import FAQSection from "@/components/shared/FAQSection";
 import ContactForm from "@/components/shared/ContactForm";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import TrustedBrands from "@/components/shared/TrustedBrands";
+import { SEO, buildBreadcrumbSchema } from "@/lib/seo";
 
 const Contact = () => {
   return (
     <div className="min-h-screen bg-background">
+      <SEO
+        title="Contact Devorica — Get a Free Strategy Call & Project Quote"
+        description="Ready to build your next digital product? Contact Devorica for a free strategy consultation. We specialize in web development, mobile apps, and SEO. Email: support@devorica.com | Phone: +880 1402 280 145"
+        canonical="https://devorica.com/contact"
+        jsonLd={buildBreadcrumbSchema([
+          { name: "Home", url: "https://devorica.com" },
+          { name: "Contact", url: "https://devorica.com/contact" },
+        ])}
+      />
       <Navbar />
 
       <div className="pt-24 md:pt-32">

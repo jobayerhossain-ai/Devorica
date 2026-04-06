@@ -37,7 +37,7 @@ const ProjectsSection = () => {
                     <div className="premium-media-frame aspect-square overflow-hidden rounded-[8px] bg-[#0b0b0f] relative group cursor-pointer border border-white/[0.04] shadow-[0_18px_45px_rgba(0,0,0,0.32)]">
                       <img 
                         src={project.src}
-                        alt={project.title}
+                        alt={`${project.title} — Devorica portfolio project showcasing digital design and development`}
                         className="premium-media block h-full w-full object-cover"
                         loading="lazy"
                       />
