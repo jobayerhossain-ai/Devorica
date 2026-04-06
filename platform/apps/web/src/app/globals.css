@@ -1,0 +1,115 @@
+@import "tailwindcss";
+
+
+@layer base {
+  body {
+    @apply bg-[#050505] text-white selection:bg-[#7f27ff]/30 antialiased overflow-x-hidden;
+  }
+}
+
+@layer components {
+  .glass-card {
+    @apply bg-[#0A0A0A] border border-white/5 backdrop-blur-xl rounded-2xl transition-all duration-300;
+  }
+  
+  .glass-card:hover {
+    @apply border-white/10 bg-[#111111];
+  }
+
+  .neon-glow {
+    @apply relative after:absolute after:inset-0 after:rounded-full after:bg-[#7f27ff]/20 after:blur-2xl after:-z-10;
+  }
+
+  .sidebar-link {
+    @apply flex items-center gap-3 px-4 py-3 text-gray-400 hover:text-white hover:bg-white/5 rounded-xl transition-all duration-200;
+  }
+
+  .sidebar-link.active {
+    @apply text-white bg-[#7f27ff]/10 border border-[#7f27ff]/20;
+  }
+
+  /* Button system – shared base */
+  .btn {
+    @apply relative inline-flex items-center justify-center gap-2 px-8 py-3 rounded-full font-semibold uppercase tracking-[0.25em] cursor-pointer overflow-hidden transition-all duration-300 text-sm;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    border: 2px solid #5063f0;
+    background: #5063f0;
+    color: #ffffff;
+  }
+
+  .btn-primary::before {
+    content: "➜";
+    position: absolute;
+    left: -45px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 18px;
+    color: #ffffff;
+    opacity: 0;
+    transition: all 0.45s ease;
+  }
+
+  .btn-primary:hover {
+    background: #0f0f0f;
+    border-color: #5063f0;
+    box-shadow: 0 10px 30px rgba(80, 99, 240, 0.25);
+    transform: translateY(-2px) scale(1.04);
+  }
+
+  .btn-primary:hover::before {
+    left: calc(100% - 32px);
+    opacity: 1;
+  }
+
+  /* Secondary button – no arrow */
+  .btn-secondary {
+    border: 2px solid #5063f0;
+    background: transparent;
+    color: #5063f0;
+  }
+
+  .btn-secondary:hover {
+    background: #0f0f0f;
+    color: #ffffff;
+    border-color: #5063f0;
+    box-shadow: 0 8px 20px rgba(80, 99, 240, 0.15);
+    transform: translateY(-2px);
+  }
+
+  /* Shared subtle glow */
+  .btn::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    border-radius: 9999px;
+    background: linear-gradient(
+      120deg,
+      rgba(255, 255, 255, 0.15),
+      rgba(255, 255, 255, 0.03)
+    );
+    opacity: 0;
+    transition: opacity 0.35s ease;
+  }
+
+  .btn:hover::after {
+    opacity: 1;
+  }
+}
+
+/* Custom scrollbar for FAANG feel */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #222;
+  border-radius: 10px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #333;
+}
