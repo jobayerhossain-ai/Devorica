@@ -1,6 +1,4 @@
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import OptimizedImage from "@/components/shared/OptimizedImage";
-import { aboutImages } from "@/lib/images";
 
 const AboutSection = () => {
   return (
@@ -32,13 +30,11 @@ const AboutSection = () => {
 
           <AnimatedSection delay={0.2}>
             <div className="premium-media-frame overflow-hidden rounded-2xl h-[400px] md:h-[500px] bg-[#111] flex items-center justify-center border border-white/5 relative">
-              <OptimizedImage 
-                src={aboutImages.teamHero.src} 
-                alt={aboutImages.teamHero.alt}
-                width={aboutImages.teamHero.width}
-                height={aboutImages.teamHero.height}
-                sizes="(max-width: 1024px) 100vw, 50vw"
+              <img 
+                src="/assets/team/team_hero.png" 
+                alt="Devorica Engineering Space" 
                 className="premium-media w-full h-full object-cover"
+                loading="lazy"
               />
             </div>
           </AnimatedSection>

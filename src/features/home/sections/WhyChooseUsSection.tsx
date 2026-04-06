@@ -1,6 +1,4 @@
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import OptimizedImage from "@/components/shared/OptimizedImage";
-import { momentImages } from "@/lib/images";
 
 const WhyChooseUsSection = () => {
   return (
@@ -12,19 +10,19 @@ const WhyChooseUsSection = () => {
               {/* Left Column */}
               <div className="flex-1 flex flex-col gap-4 mt-6 md:mt-8">
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[55%]">
-                  <OptimizedImage 
-                    src={momentImages.moment1.src} 
-                    alt={momentImages.moment1.alt} 
+                  <img 
+                    src="/assets/moments/moment1.png" 
+                    alt="Team collaboration" 
                     className="premium-media w-full h-full object-cover"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                 </div>
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[45%]">
-                  <OptimizedImage 
-                    src={momentImages.moment2.src} 
-                    alt={momentImages.moment2.alt} 
+                  <img 
+                    src="/assets/moments/moment2.png" 
+                    alt="Modern office" 
                     className="premium-media w-full h-full object-cover"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                 </div>
               </div>
@@ -36,11 +34,11 @@ const WhyChooseUsSection = () => {
                   <p className="text-[15px] font-[500] text-white/90">Countries Served</p>
                 </div>
                 <div className="premium-media-frame rounded-[20px] overflow-hidden bg-[#111111] h-[65%]">
-                  <OptimizedImage 
-                    src={momentImages.moment3.src} 
-                    alt={momentImages.moment3.alt} 
+                  <img 
+                    src="/assets/moments/moment3.png" 
+                    alt="Working professional" 
                     className="premium-media w-full h-full object-cover"
-                    sizes="(max-width: 1024px) 50vw, 25vw"
+                    loading="lazy"
                   />
                 </div>
               </div>

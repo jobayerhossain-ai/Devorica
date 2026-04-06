@@ -38,10 +38,9 @@ const TrustedBrands = () => {
                 <div className="flex items-center gap-4">
                   <img
                     src={brand.logo}
-                    alt={`${brand.name} logo — trusted Devorica technology partner`}
+                    alt={`${brand.name} logo`}
                     className="h-8 w-8 shrink-0 rounded-md object-contain"
                     loading="lazy"
-                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                   <span className="text-xl md:text-2xl text-muted-foreground font-semibold tracking-[-0.5px] transition-colors duration-300 group-hover:text-white">
@@ -62,10 +61,9 @@ const TrustedBrands = () => {
                 <div className="flex items-center gap-4">
                   <img
                     src={brand.logo}
-                    alt={`${brand.name} logo — trusted Devorica technology partner`}
+                    alt={`${brand.name} logo`}
                     className="h-8 w-8 shrink-0 rounded-md object-contain"
                     loading="lazy"
-                    decoding="async"
                     referrerPolicy="no-referrer"
                   />
                   <span className="text-xl md:text-2xl text-muted-foreground font-semibold tracking-[-0.5px] transition-colors duration-300 group-hover:text-white">

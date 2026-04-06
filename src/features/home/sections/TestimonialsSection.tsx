@@ -110,10 +110,9 @@ const TestimonialsSection = () => {
                           <div className={`flex items-center justify-center overflow-hidden rounded-full ${isMobile ? "h-11 w-11" : "h-10 w-10"}`}>
                             <img
                               src={`https://flagcdn.com/w80/${t.countryCode}.png`}
-                              alt={`${t.countryCode.toUpperCase()} flag — ${t.name} client testimonial`}
+                              alt={`${t.countryCode.toUpperCase()} flag`}
                               className="h-full w-full object-cover"
                               loading="lazy"
-                              decoding="async"
                             />
                           </div>
                         </div>

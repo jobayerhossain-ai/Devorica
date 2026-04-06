@@ -6,9 +6,7 @@ import Footer from "@/components/layout/Footer";
 import FAQSection from "@/components/shared/FAQSection";
 import ContactForm from "@/components/shared/ContactForm";
 import AnimatedSection from "@/components/shared/AnimatedSection";
-import OptimizedImage from "@/components/shared/OptimizedImage";
 import { SEO, buildServiceSchema, buildBreadcrumbSchema } from "@/lib/seo";
-import { serviceImageMap, momentImages } from "@/lib/images";
 
 const serviceData: Record<string, { title: string; subtitle: string; description: string; seoDescription: string; features: string[]; works: { title: string; tag: string; img?: string }[] }> = {
   "web-development": {
@@ -336,10 +334,9 @@ const ServicePage = () => {
 
             <AnimatedSection delay={0.2}>
               <div className="premium-media-frame rounded-2xl overflow-hidden border border-white/5 bg-[#0a0a0a] shadow-2xl">
-                <OptimizedImage 
-                  src={serviceImageMap[currentSlug]?.src || momentImages.moment4.src} 
-                  alt={serviceImageMap[currentSlug]?.alt || "Devorica service delivery team working on client project"}
-                  sizes="(max-width: 1024px) 100vw, 50vw"
+                <img 
+                  src="/assets/moments/moment4.png" 
+                  alt="Team working" 
                   className="premium-media w-full h-auto"
                   loading="lazy"
                 />
@@ -361,11 +358,10 @@ const ServicePage = () => {
               <AnimatedSection key={i} delay={i * 0.1}>
                 <div className="group cursor-pointer">
                   <div className="premium-media-frame relative aspect-[4/3] rounded-2xl overflow-hidden bg-[#0a0a0a] border border-white/5 mb-6">
-                    <OptimizedImage 
+                    <img 
                       src={work.img} 
-                      alt={`${work.title} — Devorica ${service.title} portfolio project`}
+                      alt={work.title} 
                       className="premium-media w-full h-full object-cover"
-                      sizes="(max-width: 768px) 100vw, (max-width: 1024px) 50vw, 33vw"
                       loading="lazy"
                     />
                     <div className="absolute inset-0 bg-blue-600/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -417,10 +413,8 @@ const ServicePage = () => {
                   <div className="relative shrink-0 flex items-center justify-center p-2 bg-white/5 rounded-full">
                     <img 
                       src="https://cdn-icons-png.flaticon.com/512/4149/4149678.png" 
-                      alt="Global enterprise infrastructure support icon" 
+                      alt="Global Support" 
                       className="w-24 h-24 md:w-32 md:h-32 object-contain"
-                      loading="lazy"
-                      decoding="async"
                     />
                   </div>
                 </div>
