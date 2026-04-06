@@ -12,10 +12,10 @@ const navLinks = [
     path: "/services",
     children: [
       { name: "Web & Software Engineering", path: "/services/web-development" },
-      { name: "Mobile App Development", path: "/services/ui-ux" }, // Reusing existing slug for now as agreed in structural integrity rule
-      { name: "Website Redesign & Optimization", path: "/services/crm-development" },
-      { name: "SEO & Growth Optimization", path: "/services/digital-marketing" },
-      { name: "Maintenance & Support", path: "/services/graphic-design" },
+      { name: "Mobile App Development", path: "/services/mobile-app-development" },
+      { name: "Website Redesign & Optimization", path: "/services/website-redesign" },
+      { name: "SEO & Growth Optimization", path: "/services/seo-services" },
+      { name: "Maintenance & Support", path: "/services/maintenance-support" },
     ],
   },
   { name: "Blogs", path: "/blogs" },
@@ -78,7 +78,7 @@ const Navbar = () => {
             to="/contact"
             className="btn-secondary"
           >
-            Start Your Project
+            Get Free Consultation
           </Link>
         </div>
 
@@ -139,7 +139,7 @@ const Navbar = () => {
                 )
               )}
               <Link to="/contact" onClick={() => setMobileOpen(false)} className="btn-secondary text-sm w-full justify-center mt-4">
-                Start Your Project
+                Get Free Consultation
               </Link>
             </div>
           </motion.div>

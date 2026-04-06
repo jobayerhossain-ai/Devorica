@@ -51,7 +51,7 @@ const ServicesSection = () => {
                         {s.description}
                       </p>
                       <Link to={s.path} className="inline-flex items-center justify-center bg-[#666666] text-white text-sm font-semibold px-6 py-3 rounded-lg hover:bg-[#555555] transition-colors">
-                        Explore Capabilities
+                        See How We Can Help
                       </Link>
                     </div>
                   </div>

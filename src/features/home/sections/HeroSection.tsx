@@ -116,6 +116,15 @@ const HeroSection = () => {
               <Link to="/contact" className="btn-primary">
                 <span>Book a Strategy Call</span>
               </Link>
+
+              {/* Trust signals */}
+              <div className="flex flex-wrap items-center justify-center lg:justify-start gap-x-5 gap-y-2 mt-6 text-[11px] text-white/30 font-medium">
+                <span>Trusted by 250+ Businesses</span>
+                <span className="hidden sm:inline text-white/10">|</span>
+                <span>5-Star Google Rating</span>
+                <span className="hidden sm:inline text-white/10">|</span>
+                <span>NDA Protected</span>
+              </div>
             </div>
           </AnimatedSection>
 

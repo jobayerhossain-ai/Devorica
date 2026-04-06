@@ -128,7 +128,7 @@ const Blogs = () => {
               <p className="text-white/40 text-sm md:text-lg leading-[1.6] font-normal mb-8">Receive strategic insights directly to your inbox.</p>
               <form className="flex flex-col sm:flex-row gap-3 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
                 <input type="email" placeholder="Your Email" className="flex-1 bg-black border border-white/10 rounded-lg px-6 py-4 text-sm outline-none focus:border-blue-500 transition-colors text-white" />
-                <button className="btn-secondary shrink-0">Subscribe</button>
+                <button className="btn-secondary shrink-0">Get Weekly Insights</button>
               </form>
             </div>
           </AnimatedSection>

@@ -24,7 +24,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
       { title: "Retail System", tag: "Engineering", img: "https://images.unsplash.com/photo-1618221195710-dd6b41faaea6?auto=format&fit=crop&q=80&w=800" },
     ],
   },
-  "ui-ux": {
+  "mobile-app-development": {
     title: "Mobile App Development",
     subtitle: "Engineering mission-critical mobile experiences",
     description: "Our mobile engineering team develops high-performance native and cross-platform applications that deliver seamless user journeys. We focus on technical efficiency, security, and superior interface design to drive user retention and mobile business growth.",
@@ -37,7 +37,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
       { title: "Mobile Retail Solution", tag: "Mobile Engineering", img: "https://images.unsplash.com/photo-1523206489230-c012c6e9a996?auto=format&fit=crop&q=80&w=800" },
     ],
   },
-  "crm-development": {
+  "website-redesign": {
     title: "Website Redesign & Optimization",
     subtitle: "Transforming digital assets into high-performance revenue engines",
     description: "Devorica revitalizes legacy digital systems through strategic redesign and data-driven performance optimization. We focus on enhancing technical metrics, user accessibility, and conversion architecture to ensure your web presence drives measurable business results.",
@@ -50,7 +50,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
       { title: "Global Web Expansion", tag: "Transformation", img: "https://images.unsplash.com/photo-1543286386-2e659306cd6c?auto=format&fit=crop&q=80&w=800" },
     ],
   },
-  "digital-marketing": {
+  "seo-services": {
     title: "SEO & Growth Optimization",
     subtitle: "Data-driven strategies for global market leadership",
     description: "We implement technical SEO and outcome-focused growth methodologies to maximize your organic reach and search authority. Our growth team leverages data analytics and performance marketing to optimize acquisition costs and drive sustainable business expansion.",
@@ -63,7 +63,7 @@ const serviceData: Record<string, { title: string; subtitle: string; description
       { title: "Institutional Branding", tag: "Optimization", img: "https://images.unsplash.com/photo-1551434678-e076c223a692?auto=format&fit=crop&q=80&w=800" },
     ],
   },
-  "graphic-design": {
+  "maintenance-support": {
     title: "Maintenance & Support",
     subtitle: "24/7 reliability for mission-critical infrastructure",
     description: "Devorica provides comprehensive technical oversight and proactive system maintenance to ensure 100% operational uptime. Our engineering support team manages security infrastructure, performance tuning, and continuous technical evolution to protect your digital assets.",
@@ -122,7 +122,7 @@ const ServiceHeroShapes = ({ slug }: { slug: string }) => {
           ))}
         </div>
       );
-    case "ui-ux": // Mobile App Development
+    case "mobile-app-development": // Mobile App Development
       return (
         <div className="absolute inset-0 perspective-1000 overflow-hidden pointer-events-none">
           {/* Glass Pane Stack */}
@@ -157,7 +157,7 @@ const ServiceHeroShapes = ({ slug }: { slug: string }) => {
           />
         </div>
       );
-    case "crm-development": // Website Redesign & Optimization
+    case "website-redesign": // Website Redesign & Optimization
       return (
         <div className="absolute inset-0 perspective-1000 overflow-hidden pointer-events-none">
           {/* Optimization Mesh Sphere */}
@@ -190,7 +190,7 @@ const ServiceHeroShapes = ({ slug }: { slug: string }) => {
           />
         </div>
       );
-    case "digital-marketing": // SEO & Growth Optimization
+    case "seo-services": // SEO & Growth Optimization
       return (
         <div className="absolute inset-0 perspective-1000 overflow-hidden pointer-events-none">
           {/* Growth Rings */}
@@ -218,7 +218,7 @@ const ServiceHeroShapes = ({ slug }: { slug: string }) => {
           </div>
         </div>
       );
-    case "graphic-design": // Maintenance & Support
+    case "maintenance-support": // Maintenance & Support
       return (
         <div className="absolute inset-0 perspective-2000 overflow-hidden pointer-events-none">
           {/* Shield Core */}
@@ -326,7 +326,7 @@ const ServicePage = () => {
               </p>
               <div className="flex justify-center lg:justify-start">
                 <Link to="/contact" className="btn-secondary inline-flex group mb-8 gap-1.5 sm:gap-2">
-                  <span>Start Your Engagement</span>
+                  <span>Request a Free Quote</span>
                   <ArrowRight className="h-4 w-4 shrink-0 group-hover:translate-x-1 transition-transform" />
                 </Link>
               </div>

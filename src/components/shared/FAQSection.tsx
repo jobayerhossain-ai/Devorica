@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Plus, Minus, ArrowRight } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
+import { Link } from "react-router-dom";
 import AnimatedSection from "@/components/shared/AnimatedSection";
 import SmartHeading from "@/components/shared/SmartHeading";
 
@@ -9,7 +10,7 @@ const faqData = [
     q: "How does Devorica drive business growth?",
     a: "Devorica engineers custom, performance-driven digital solutions that optimize customer acquisition and operational efficiency. We focus on measurable business impact—from increasing user retention to driving exponential revenue growth through scalable technology architectures.",
   },
-  { q: "What are Devorica's core capabilities?", a: "We specialize in Scalable Web & Software Engineering, Mobile App Development, Website Redesign & Optimization, SEO & Growth Optimization, and 24/7 Enterprise Maintenance & Support." },
+  { q: "What are Devorica's core capabilities?", a: (<>We specialize in <Link to="/services/web-development" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">Scalable Web &amp; Software Engineering</Link>, <Link to="/services/mobile-app-development" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">Mobile App Development</Link>, <Link to="/services/website-redesign" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">Website Redesign &amp; Optimization</Link>, <Link to="/services/seo-services" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">SEO &amp; Growth Optimization</Link>, and <Link to="/services/maintenance-support" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">24/7 Enterprise Maintenance &amp; Support</Link>.</>) },
   {
     q: "What is the typical project implementation timeline?",
     a: (
@@ -36,10 +37,10 @@ const faqData = [
   { q: "How is project pricing determined?", a: "Our pricing architecture is value-based, reflecting the technical complexity and strategic impact of the solution. We offer tailored transparent quotes following a comprehensive discovery session." },
   { q: "What industry sectors does Devorica serve?", a: "We provide high-end engineering for Finance & Banking, E-commerce, Enterprise SaaS, Healthcare Technology, and high-growth Startups." },
   { q: "Are solutions optimized for mobile performance?", a: "Yes. Every platform we engineer adheres to a mobile-first philosophy, ensuring seamless performance, accessibility, and high conversion rates across all device ecosystems." },
-  { q: "Is post-launch support provided?", a: "We offer comprehensive 24/7 maintenance and support agreements to ensure systemic stability, security, and continuous technological evolution." },
+  { q: "Is post-launch support provided?", a: (<>We offer comprehensive <Link to="/services/maintenance-support" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">24/7 maintenance and support</Link> agreements to ensure systemic stability, security, and continuous technological evolution.</>) },
   { q: "How do you manage project transparency?", a: "We utilize industry-leading agile methodologies and real-time project management infrastructure, providing clients with full visibility into the development lifecycle." },
-  { q: "Does Devorica offer SEO and visibility engineering?", a: "Our growth optimization team integrates data-driven SEO strategies into the core architecture of every platform to maximize organic visibility and search authority." },
-  { q: "How can I initiate a partnership with Devorica?", a: "Initiate the process by requesting a custom solution through our portal. We will schedule a strategy call to align our technical capabilities with your business objectives." },
+  { q: "Does Devorica offer SEO and visibility engineering?", a: (<>Our <Link to="/services/seo-services" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">growth optimization team</Link> integrates data-driven SEO strategies into the core architecture of every platform to maximize organic visibility and search authority.</>) },
+  { q: "How can I initiate a partnership with Devorica?", a: (<>Initiate the process by <Link to="/contact" className="text-blue-400 hover:text-blue-300 underline underline-offset-2">requesting a custom solution</Link> through our portal. We will schedule a strategy call to align our technical capabilities with your business objectives.</>) },
   { q: "Do you offer enterprise e-commerce solutions?", a: "We engineer robust, high-volume e-commerce architectures designed for global scalability, secure transaction processing, and optimized user journeys." },
   { q: "What distinguishes Devorica from standard agencies?", a: "Our integration of deep technical engineering with high-level business strategy ensures we deliver solutions that don't just function, but dominate their respective markets." },
 ];

@@ -83,7 +83,7 @@ const Career = () => {
                   placeholder="Your professional email" 
                   className="flex-1 bg-white/5 border border-white/10 rounded-xl px-6 py-4 text-sm outline-none focus:border-blue-500/50 transition-all text-white" 
                 />
-                <button className="btn-secondary shrink-0">Join Hub</button>
+                <button className="btn-secondary shrink-0">Get Hiring Alerts</button>
               </form>
             </div>
           </AnimatedSection>

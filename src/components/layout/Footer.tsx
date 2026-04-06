@@ -28,10 +28,13 @@ const Footer = () => {
 
           {/* Links Column 1 */}
           <div className="space-y-6 flex flex-col items-center md:items-start text-center md:text-left">
-            <h4 className="text-xs font-[700] text-white/40 tracking-widest">Corporate</h4>
+            <h4 className="text-xs font-[700] text-white/40 tracking-widest">Services</h4>
             <div className="space-y-4">
-              <Link to="/services" className="footer-link block text-[15px] text-white/60">Services</Link>
-              <span className="footer-link block text-[15px] text-white/60 cursor-pointer">Support Center</span>
+              <Link to="/services/web-development" className="footer-link block text-[15px] text-white/60">Web Development</Link>
+              <Link to="/services/mobile-app-development" className="footer-link block text-[15px] text-white/60">Mobile App Development</Link>
+              <Link to="/services/website-redesign" className="footer-link block text-[15px] text-white/60">Website Redesign</Link>
+              <Link to="/services/seo-services" className="footer-link block text-[15px] text-white/60">SEO Services</Link>
+              <Link to="/services/maintenance-support" className="footer-link block text-[15px] text-white/60">Maintenance & Support</Link>
             </div>
           </div>
 
