@@ -78,9 +78,9 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-6 text-[11px] font-[500] text-white/30 tracking-wide uppercase">
           <div className="flex gap-4">
-            <Link to="/privacy" className="footer-link">Privacy Policy</Link>
+            <Link to="/privacy-policy" className="footer-link">Privacy Policy</Link>
             <span className="text-white/10">|</span>
-            <Link to="/terms" className="footer-link">Terms & Conditions</Link>
+            <Link to="/terms-conditions" className="footer-link">Terms & Conditions</Link>
           </div>
           
           <div className="text-center">
