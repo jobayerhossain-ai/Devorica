@@ -5,6 +5,7 @@ import { Toaster as Sonner } from "@/components/ui/sonner";
 import { Toaster } from "@/components/ui/toaster";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import ErrorBoundary from "@/components/shared/ErrorBoundary";
+import ScrollToTop from "@/components/shared/ScrollToTop";
 
 /* Route-level code-splitting: each page is loaded on demand */
 const Index = lazy(() => import("./pages/Index"));
@@ -23,6 +24,7 @@ const App = () => (
       <Toaster />
       <Sonner />
       <BrowserRouter>
+        <ScrollToTop />
         <ErrorBoundary>
           <Suspense fallback={null}>
             <Routes>
