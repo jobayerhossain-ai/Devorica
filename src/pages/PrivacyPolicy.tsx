@@ -1,12 +1,26 @@
-import { useEffect } from "react";
-import { motion } from "framer-motion";
-import { Shield, Lock, Eye, Users, Database, Mail } from "lucide-react";
-import { SEO } from "@/lib/seo";
+import { useEffect, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
+import { Shield, Database, Eye, Lock, Users, Mail, ChevronDown } from "lucide-react";
+import Navbar from "@/components/layout/Navbar";
+import Footer from "@/components/layout/Footer";
+import AnimatedSection from "@/components/shared/AnimatedSection";
+import { SEO, buildBreadcrumbSchema } from "@/lib/seo";
 
 const PrivacyPolicy = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
+
+  const [expandedSections, setExpandedSections] = useState<Record<number, boolean>>({
+    0: true
+  });
+
+  const toggleSection = (index: number) => {
+    setExpandedSections(prev => ({
+      ...prev,
+      [index]: !prev[index]
+    }));
+  };
 
   const sections = [
     {
@@ -14,24 +28,17 @@ const PrivacyPolicy = () => {
       icon: Shield,
       content: `Devorica ("Company", "we", "our", or "us") operates the website. This page informs you of our policies regarding the collection, use, and disclosure of personal data when you use our Service and the choices you have associated with that data.
 
-We use your data to provide and improve our Service. By using our Service, you agree to the collection and use of information in accordance with this policy. Unless otherwise defined in this Privacy Policy, terms used in this Privacy Policy have the same meanings as in our Terms & Conditions.`
+We use your data to provide and improve our Service. By using our Service, you agree to the collection and use of information in accordance with this policy.`
     },
     {
       title: "Information Collection and Use",
       icon: Database,
-      content: `We collect several different types of information for various purposes to provide and improve our Service to you.
+      content: `We collect several different types of information for various purposes to provide and improve our Service.
 
 Types of Data Collected:
-• Personal Data: While using our Service, we may ask you to provide us with certain personally identifiable information that can be used to contact or identify you ("Personal Data"). This may include, but is not limited to:
-  - Email address
-  - First name and last name
-  - Phone number
-  - Address, State, Province, ZIP/Postal code, City
-  - Cookies and Usage Data
-
-• Usage Data: We may also collect information on how the Service is accessed and used ("Usage Data"). This may include information such as your computer's Internet Protocol address (e.g. IP address), browser type, browser version, the pages you visit, the time and date of your visit, the time spent on those pages, and other diagnostic data.
-
-• Tracking & Cookies Data: We use cookies and similar tracking technologies to track activity on our Service and hold certain information.`
+• Personal Data: Email address, name, phone number, address, location information
+• Usage Data: IP address, browser type, pages visited, time and date of visit
+• Tracking & Cookies: We use cookies and similar tracking technologies to track activity on our Service`
     },
     {
       title: "Use of Data",
@@ -40,33 +47,38 @@ Types of Data Collected:
 
 • To provide and maintain our Service
 • To notify you about changes to our Service
-• To allow you to participate in interactive features of our Service when you choose to do so
-• To provide customer support and respond to your inquiries
-• To gather analysis or valuable information so that we can improve our Service
+• To provide customer support and respond to inquiries
+• To gather analysis or valuable information to improve our Service
 • To monitor the usage of our Service
-• To detect, prevent and address technical issues and fraudulent activity
-• To provide you with news, special offers and general information about other goods, services and events which we offer that are similar to those that you have already purchased or enquired about unless you have opted not to receive such information`
+• To detect, prevent and address technical issues and fraudulent activity`
     },
     {
       title: "Security of Data",
       icon: Lock,
-      content: `The security of your data is important to us but remember that no method of transmission over the Internet or method of electronic storage is 100% secure. While we strive to use commercially acceptable means to protect your Personal Data, we cannot guarantee its absolute security.
+      content: `The security of your data is important to us. We implement appropriate technical and organizational measures designed to protect Personal Data against accidental or unlawful destruction, accidental loss, alteration, unauthorised or unlawful access or processing.
 
-We implement appropriate technical and organizational measures designed to protect Personal Data against accidental or unlawful destruction, accidental loss, alteration, unauthorised or unlawful access or processing, and other unlawful forms of processing.`
+No method of transmission over the Internet is 100% secure. While we strive to protect your Personal Data, we cannot guarantee its absolute security.`
     },
     {
-      title: "Changes to This Privacy Policy",
-      icon: Mail,
-      content: `We may update our Privacy Policy from time to time. We will notify you of any changes by posting the new Privacy Policy on this page and updating the "Last Updated" date at the top of this Privacy Policy.
+      title: "User Rights",
+      icon: Users,
+      content: `You have the right to:
+• Access your personal data
+• Correct inaccurate personal data
+• Request deletion of your data
+• Opt-out of certain data processing
+• Withdraw consent at any time
 
-You are advised to review this Privacy Policy periodically for any changes. Changes to this Privacy Policy are effective when they are posted on this page.`
+To exercise these rights, please contact us using the information provided below.`
     },
     {
       title: "Contact Us",
-      icon: Users,
-      content: `If you have any questions about this Privacy Policy, please contact us by email: privacy@devorica.com
+      icon: Mail,
+      content: `If you have any questions about this Privacy Policy, please contact us:
 
-We will respond to your inquiry within 30 business days. Your privacy is paramount to us, and we are committed to maintaining the confidentiality and security of your personal information in accordance with applicable laws and regulations.`
+Email: privacy@devorica.com
+
+We will respond to your inquiry within 30 business days. Your privacy is paramount to us, and we are committed to maintaining the confidentiality and security of your personal information.`
     }
   ];
 
@@ -75,7 +87,7 @@ We will respond to your inquiry within 30 business days. Your privacy is paramou
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.1,
+        staggerChildren: 0.08,
         delayChildren: 0.2
       }
     }
@@ -91,119 +103,129 @@ We will respond to your inquiry within 30 business days. Your privacy is paramou
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 relative overflow-hidden">
+    <div className="min-h-screen bg-[#000000] text-white selection:bg-blue-500/30">
       <SEO
         title="Privacy Policy — Devorica"
         description="Our Privacy Policy explains how Devorica collects, uses, and protects your personal information. Read our complete privacy practices and data protection measures."
         noIndex={false}
+        jsonLd={[buildBreadcrumbSchema([
+          { name: "Home", url: "https://devorica.com" },
+          { name: "Privacy Policy", url: "https://devorica.com/privacy-policy" },
+        ])]}
       />
 
-      {/* Background gradient orbs */}
-      <div className="absolute w-[600px] h-[600px] rounded-full opacity-20 blur-[150px] pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, hsl(262, 83%, 58%) 0%, transparent 70%)",
-          top: "5%",
-          left: "5%",
-        }}
-      />
-      <div className="absolute w-[400px] h-[400px] rounded-full opacity-15 blur-[120px] pointer-events-none"
-        style={{
-          background: "radial-gradient(circle, hsl(217, 91%, 60%) 0%, transparent 70%)",
-          bottom: "10%",
-          right: "10%",
-        }}
-      />
+      <Navbar />
 
-      {/* Content */}
-      <div className="relative z-10 pt-32 pb-20">
-        <div className="container mx-auto px-4 max-w-4xl">
-          {/* Header */}
-          <motion.div
-            initial={{ opacity: 0, y: -30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center mb-16"
-          >
-            <div className="flex justify-center mb-6">
-              <div className="p-4 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-2xl border border-purple-500/30">
-                <Shield className="w-12 h-12 text-purple-400" />
+      {/* Hero Section */}
+      <section className="relative pt-32 pb-20 md:pt-48 md:pb-32 overflow-hidden bg-[#050505]">
+        <div className="container-main relative z-10">
+          <AnimatedSection>
+            <div className="max-w-3xl">
+              <div className="flex items-center gap-4 mb-6">
+                <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30">
+                  <Shield className="w-8 h-8 text-blue-400" />
+                </div>
+                <span className="text-sm font-semibold text-blue-400 uppercase tracking-wider">Legal</span>
               </div>
+
+              <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-[800] leading-[1.1] tracking-tight mb-6">
+                Privacy <span className="text-white/40">Policy</span>
+              </h1>
+
+              <p className="text-lg text-white/50 leading-relaxed">
+                Last Updated: April 12, 2026. We respect your privacy and are committed to protecting your personal data. This policy explains how we collect, use, and safeguard your information.
+              </p>
             </div>
-            <h1 className="text-4xl md:text-5xl font-bold text-white mb-4">
-              Privacy Policy
-            </h1>
-            <p className="text-gray-400 text-lg">
-              Last Updated: April 12, 2026
-            </p>
-          </motion.div>
+          </AnimatedSection>
+        </div>
+      </section>
 
-          {/* Introduction Summary */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.1 }}
-            className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 mb-16"
-          >
-            <p className="text-gray-300 text-lg leading-relaxed">
-              At Devorica, we respect your privacy and are committed to protecting your personal data. This Privacy Policy explains how we collect, use, disclose, and safeguard your information when you visit our website and use our services.
-            </p>
-          </motion.div>
-
-          {/* Sections */}
+      {/* Content Section */}
+      <section className="relative py-20 md:py-32">
+        <div className="container-main">
           <motion.div
             variants={containerVariants}
             initial="hidden"
-            animate="visible"
-            className="space-y-8"
+            whileInView="visible"
+            viewport={{ once: true, margin: "-100px" }}
+            className="space-y-6"
           >
             {sections.map((section, index) => {
               const Icon = section.icon;
+              const isExpanded = expandedSections[index];
+
               return (
                 <motion.div
                   key={index}
                   variants={itemVariants}
-                  className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8 hover:border-white/20 transition-all duration-300 hover:bg-white/8"
                 >
-                  <div className="flex items-start gap-4 mb-4">
-                    <div className="p-3 bg-gradient-to-br from-purple-500/20 to-blue-500/20 rounded-xl border border-purple-500/30 flex-shrink-0">
-                      <Icon className="w-6 h-6 text-purple-400" />
+                  <button
+                    onClick={() => toggleSection(index)}
+                    className="w-full"
+                  >
+                    <div className="glass-card-hover p-6 text-left group">
+                      <div className="flex items-start justify-between gap-4">
+                        <div className="flex items-start gap-4 flex-1">
+                          <div className="p-3 bg-gradient-to-br from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30 flex-shrink-0 group-hover:border-blue-500/50 transition-colors">
+                            <Icon className="w-6 h-6 text-blue-400" />
+                          </div>
+                          <div className="pt-1">
+                            <h3 className="text-xl md:text-2xl font-bold text-white mb-1">
+                              {section.title}
+                            </h3>
+                            {isExpanded && (
+                              <p className="text-sm text-white/40">Click to collapse</p>
+                            )}
+                          </div>
+                        </div>
+                        <ChevronDown 
+                          className={`w-5 h-5 text-white/40 flex-shrink-0 transition-transform duration-300 ${isExpanded ? 'rotate-180' : ''}`}
+                        />
+                      </div>
+
+                      <AnimatePresence>
+                        {isExpanded && (
+                          <motion.div
+                            initial={{ opacity: 0, height: 0 }}
+                            animate={{ opacity: 1, height: "auto" }}
+                            exit={{ opacity: 0, height: 0 }}
+                            transition={{ duration: 0.3 }}
+                            className="mt-4 pt-4 border-t border-white/5"
+                          >
+                            <p className="text-white/60 leading-relaxed whitespace-pre-wrap">
+                              {section.content}
+                            </p>
+                          </motion.div>
+                        )}
+                      </AnimatePresence>
                     </div>
-                    <h2 className="text-2xl font-bold text-white pt-0.5">
-                      {section.title}
-                    </h2>
-                  </div>
-                  <p className="text-gray-300 leading-relaxed whitespace-pre-wrap">
-                    {section.content}
-                  </p>
+                  </button>
                 </motion.div>
               );
             })}
           </motion.div>
 
-          {/* CTA Footer */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8, delay: 0.6 }}
-            className="mt-16 text-center"
-          >
-            <div className="bg-white/5 backdrop-blur-md border border-white/10 rounded-2xl p-8">
-              <h3 className="text-xl font-bold text-white mb-3">
-                Questions About Our Privacy Policy?
-              </h3>
-              <p className="text-gray-400 mb-6">
-                If you have any concerns or questions regarding our privacy practices, please don't hesitate to reach out to us.
+          {/* CTA Section */}
+          <AnimatedSection delay={0.6} className="mt-20">
+            <div className="glass-card p-8 md:p-12 text-center max-w-2xl mx-auto">
+              <h2 className="text-2xl md:text-3xl font-bold text-white mb-4">
+                Privacy Questions?
+              </h2>
+              <p className="text-white/60 mb-8">
+                If you have concerns or questions regarding our privacy practices, our team is ready to help.
               </p>
               <a
                 href="/contact"
-                className="inline-flex items-center gap-2 bg-gradient-to-r from-purple-600 to-blue-600 hover:from-purple-700 hover:to-blue-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300"
+                className="inline-flex items-center gap-2 bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white px-8 py-3 rounded-xl font-semibold transition-all duration-300"
               >
-                Contact Us
+                Contact Our Team
               </a>
             </div>
-          </motion.div>
+          </AnimatedSection>
         </div>
-      </div>
+      </section>
+
+      <Footer />
     </div>
   );
 };
